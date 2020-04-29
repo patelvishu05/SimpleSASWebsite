@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>SAS Login</title>
+{#        <link rel="stylesheet" href="{% static 'multiTenantApp/css/login.css' %}">#}
+    </head>
+    <body>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <body>
+            <h2>Atithi Login</h2>
+            <main>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input type="submit" value="Log in">
+                </form>
+            </main>
+        </body>
+    </body>
+</html>

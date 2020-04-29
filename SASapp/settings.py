@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-
+from dbconfig import *
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['192.168.25.3']
 # Application definition
 
 INSTALLED_APPS = [
+    'softsite.apps.SoftsiteConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -76,10 +77,9 @@ WSGI_APPLICATION = 'SASapp.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default' : { 'ENGINE': ENGINE, 'NAME' : NAME, 'USER' : USER, 'PASSWORD' : PASSWORD, 'HOST' : HOST,  'PORT' : PORT,},
+    'zygarde' : { 'ENGINE': ENGINE1, 'NAME' : NAME1, 'USER' : USER1, 'PASSWORD' : PASSWORD1, 'HOST' : HOST1,  'PORT' : PORT1,},
+    'yveltal' : { 'ENGINE': ENGINE2, 'NAME' : NAME2, 'USER' : USER2, 'PASSWORD' : PASSWORD2, 'HOST' : HOST2,  'PORT' : PORT2,},
 }
 
 
@@ -120,3 +120,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
