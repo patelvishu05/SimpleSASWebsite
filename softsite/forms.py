@@ -23,3 +23,6 @@ class UserLogin(forms.Form):
 
         log = super(UserLogin, self).clean(*args, **kwargs)
         return log
+
+
+class Message(forms.ModelForm):
