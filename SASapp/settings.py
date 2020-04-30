@@ -82,6 +82,7 @@ DATABASES = {
     'yveltal' : { 'ENGINE': ENGINE2, 'NAME' : NAME2, 'USER' : USER2, 'PASSWORD' : PASSWORD2, 'HOST' : HOST2,  'PORT' : PORT2,},
 }
 
+DATABASE_ROUTERS = ["softsite.router.AuthRouter"]
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

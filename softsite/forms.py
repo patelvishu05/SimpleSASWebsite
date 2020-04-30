@@ -1,5 +1,7 @@
 from . models import *
+from django import forms
 from django.contrib.auth.forms import *
+from .models import Student
 
 User = get_user_model()
 
@@ -25,4 +27,13 @@ class UserLogin(forms.Form):
         return log
 
 
-class Message(forms.ModelForm):
+class StudentForm(forms.ModelForm):
+    def __init__(self,*args,**kwargs):
+        self.request = kwargs.pop('request',None)
+        super(StudentForm,self).__init__(*args,**kwargs)
+
+    class Meta:
+        model = Student
+        fields = [
+            'rollNo','firstName','lastName'
+        ]

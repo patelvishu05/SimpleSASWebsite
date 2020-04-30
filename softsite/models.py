@@ -8,14 +8,9 @@ class Student(models.Model):
     firstName = models.CharField(max_length=100)
     lastName = models.CharField(max_length=100)
 
-    def __str__(self):
-        return self.rollNo + "\t" + self.firstName + "\t" + self.lastName
-
 
 class AuditTrail(models.Model):
+    id = models.IntegerField(primary_key=True, auto_created=True)
     rollNo = models.ForeignKey(Student, on_delete=models.CASCADE)
     comments = models.CharField(max_length=100)
     dateAdded = models.DateField(default=datetime.now(), blank=True)
-
-    def __str__(self):
-        return self.rollNo + "\t" + self.comments + "\t" + self.dateAdded
