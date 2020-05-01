@@ -4,7 +4,9 @@
 <head></head>
 <body>
 <form action="#" method="post" id="regform"> {% csrf_token %}
-{{ form.as_p }}
+<p>{{ form.rollNo }}</p>
+    <p>{{ form.firstName }}</p>
+    <p>{{ form.lastName }}</p>
     <input type="submit"/>
 </form>
 </body>

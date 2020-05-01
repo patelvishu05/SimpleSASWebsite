@@ -25,12 +25,20 @@ def userLogin(request):
 
 
 def StudentView(request):
-    form = StudentForm(request=request.POST or None)
-    if form.is_valid():
-        form.save()
-        return redirect('softsite:success')
-    else:
+    form = StudentForm(request=request)
+    if request.method == 'POST':
+        form = StudentForm(request.POST, request=request)
+        print("---->")
         print(form.errors)
+        print(form.is_valid())
+        print(request.POST)
+
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.save(using=str(request.user))
+            return redirect('softsite:success')
+        else:
+            print(form.errors)
     context = {
         'form' : form,
         'user' : request.user,
