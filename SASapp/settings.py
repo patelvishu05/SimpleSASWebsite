@@ -77,9 +77,15 @@ WSGI_APPLICATION = 'SASapp.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default' : { 'ENGINE': ENGINE, 'NAME' : NAME, 'USER' : USER, 'PASSWORD' : PASSWORD, 'HOST' : HOST,  'PORT' : PORT,},
-    'zygarde' : { 'ENGINE': ENGINE1, 'NAME' : NAME1, 'USER' : USER1, 'PASSWORD' : PASSWORD1, 'HOST' : HOST1,  'PORT' : PORT1,},
-    'yveltal' : { 'ENGINE': ENGINE2, 'NAME' : NAME2, 'USER' : USER2, 'PASSWORD' : PASSWORD2, 'HOST' : HOST2,  'PORT' : PORT2,},
+    'default' : {
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'read_default_file': '/etc/mysql/my.cnf',
+        },
+    }
+    # 'default' : { 'ENGINE': ENGINE, 'NAME' : NAME, 'USER' : USER, 'PASSWORD' : PASSWORD, 'HOST' : HOST,  'PORT' : PORT,},
+    # 'zygarde' : { 'ENGINE': ENGINE1, 'NAME' : NAME1, 'USER' : USER1, 'PASSWORD' : PASSWORD1, 'HOST' : HOST1,  'PORT' : PORT1,},
+    # 'yveltal' : { 'ENGINE': ENGINE2, 'NAME' : NAME2, 'USER' : USER2, 'PASSWORD' : PASSWORD2, 'HOST' : HOST2,  'PORT' : PORT2,},
 }
 
 DATABASE_ROUTERS = ["softsite.router.AuthRouter"]

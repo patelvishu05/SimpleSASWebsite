@@ -27,7 +27,7 @@ def userLogin(request):
 def StudentView(request):
     form = StudentForm(request=request.POST or None)
     if form.is_valid():
-        form.save(using=request.user)
+        form.save()
         return redirect('softsite:success')
     else:
         print(form.errors)
