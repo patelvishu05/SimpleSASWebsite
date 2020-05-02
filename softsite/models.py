@@ -10,7 +10,7 @@ class Student(models.Model):
 
 
 class AuditTrail(models.Model):
-    id = models.IntegerField(primary_key=True, auto_created=True)
+    id = models.AutoField(primary_key=True)
     rollNo = models.ForeignKey(Student, on_delete=models.CASCADE)
     comments = models.CharField(max_length=100)
-    dateAdded = models.DateField(default=datetime.now(), blank=True)
+    # dateAdded = models.DateTimeField(default=datetime.now(), blank=True)

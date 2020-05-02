@@ -36,6 +36,8 @@ def StudentView(request):
         if form.is_valid():
             instance = form.save(commit=False)
             instance.save(using=str(request.user))
+            audit = AuditTrail(rollNo=instance, comments="Added " + instance.firstName)
+            audit.save()
             return redirect('softsite:success')
         else:
             print(form.errors)
